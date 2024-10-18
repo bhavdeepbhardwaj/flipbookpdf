@@ -22,30 +22,39 @@
     #logo {
       position: absolute;
       top: 20px;
-      /* Adjust as needed */
       left: 20px;
-      /* Changed from right to left */
       max-width: 100px;
-      /* Adjust for logo size */
       height: auto;
+      z-index: 1000; /* Ensure it's on top */
     }
 
     #flipbookContainer {
       background-image: url('lib/images/bg.jpeg');
       background-size: cover;
-      /* Adjust based on your needs */
       background-position: center;
       background-repeat: no-repeat;
+      width: 100%;
+      height: 100vh; /* Full height for better mobile responsiveness */
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+      #logo {
+        max-width: 80px; /* Make the logo smaller for mobile */
+        top: 0px;
+        left: 0px;
+      }
+
+      #flipbookContainer {
+        height: 100vh; /* Ensure flipbook container fits the screen */
+      }
     }
   </style>
 </head>
 
 <body>
-
-
   <div id="flipbookContainer">
     <img id="logo" src="lib/images/logo.png" alt="Logo">
-
   </div>
 
   <!-- jQuery  -->
@@ -63,7 +72,6 @@
       var flipBook = $("#flipbookContainer").flipBook(pdf, options);
     });
   </script>
-
 </body>
 
 </html>
